@@ -1,7 +1,8 @@
-﻿from typing import NamedTuple
+﻿from dataclasses import dataclass
 
 
-class Asteroid(NamedTuple):
+@dataclass(frozen=True)
+class Asteroid:
     id: int
     x: float
     y: float
@@ -12,7 +13,8 @@ class Asteroid(NamedTuple):
     colliding: bool = False
 
 
-class Ship(NamedTuple):
+@dataclass(frozen=True)
+class Ship:
     x: float
     y: float
     vx: float
@@ -21,7 +23,8 @@ class Ship(NamedTuple):
     shield_hits: int = 0
 
 
-class GameState(NamedTuple):
+@dataclass(frozen=True)
+class GameState:
     asteroids: tuple[Asteroid, ...]
     ship: Ship
     width: int
